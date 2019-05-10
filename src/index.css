@@ -45,3 +45,12 @@ a:hover {
   margin-right: auto;
 }
 
+.is-open * .dropdown-icon {
+  display: none;
+  visibility: hidden;
+}
+
+.is-closed * .dropup-icon {
+  display: none;
+  visibility: hidden;
+}

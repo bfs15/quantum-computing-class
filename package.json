@@ -6,7 +6,9 @@
     "@trendmicro/react-sidenav": "^0.4.5",
     "immutability-helper": "^3.0.0",
     "react": "^16.8.6",
+    "react-collapsible": "^2.6.0",
     "react-dom": "^16.8.6",
+    "react-icons": "^3.7.0",
     "react-mathjax2": "0.0.2",
     "react-scripts": "3.0.1"
   },

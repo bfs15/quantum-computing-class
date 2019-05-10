@@ -1,7 +1,7 @@
 import React from 'react'
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 
-const SideQuestions = ({ questions, toggleFilter }) => {
+const SideQuestions = ({ questions }) => {
    const sidebarItems = questions.map( question => {
       return (
          <NavItem eventKey="home" key={question.id}>
@@ -9,7 +9,7 @@ const SideQuestions = ({ questions, toggleFilter }) => {
                <i className="fa fa-fw" style={{ fontSize: '1.75em' }} />
             </NavIcon>
             <NavText>
-               <a className="" href={"#Question" + question.id}>{"Question " + question.id}</a>
+               <a className="" href={"#Question" + question.id}>{question.title}</a>
             </NavText>
          </NavItem>
       )
