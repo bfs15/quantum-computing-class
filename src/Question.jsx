@@ -20,13 +20,13 @@ const Question = ({ question, toggleFilter }) => {
       )
    })
 
-   const type_filter_element = type_filters.list.map(type_filter =>{
-      const className = question.type_filters[type_filter.id].switch ? "pure-menu-link pure-menu-item pure-button-active" : "pure-menu-link pure-menu-item"
-      
+   const type_filter_element = question.type_filters.map(type_filter => {
+      const className = type_filter.switch ? "pure-menu-link pure-menu-item pure-button-active" : "pure-menu-link pure-menu-item"
+
       return (
          <li onClick={() => { toggleFilter(question.id, type_filter.id) }} key={type_filter.id} className={className} >
             <label href="#" class="pure-menu-link">
-               {type_filter.string}
+               {type_filters.list[type_filter.id].string}
             </label>
          </li>
       )
