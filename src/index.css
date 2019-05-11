@@ -1,6 +1,8 @@
 
 body {
-  margin: 5% auto;
+  /* margin: 5% auto; */
+  width: 80%;
+  margin: auto;
   font-family: -apple-system,
   BlinkMacSystemFont,
   "Segoe UI",
@@ -53,4 +55,15 @@ a:hover {
 .is-closed * .dropup-icon {
   display: none;
   visibility: hidden;
+}
+
+.pure-table-odd td {
+  background: #cecece!important;
+}
+
+/* Question Description */
+.question_description {
+  width: 100%;
+  text-align: center;
+  margin: auto;
 }
