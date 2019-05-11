@@ -219,35 +219,35 @@ const initial_state = {
 					)
 				},
 				{
-					id: 6,
+					id: 7,
 					type: "factorize",
 					step:
 						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x) + \\frac{1}{2^{3/2}}\\sum_{x}(-1^{111·x}x)",
 					note: null
 				},
 				{
-					id: 6,
+					id: 8,
 					type: "expand",
 					step:
 						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x -1^{111·x}x)",
 					note: null
 				},
 				{
-					id: 7,
+					id: 9,
 					type: "",
 					step:
 						"H^{\\otimes 3}(⎹000⟩ + ⎹111⟩) = \\frac{1}{2^{3/2}}\\left( 2⎹000⟩+2⎹011⟩+2⎹101⟩+2⎹110⟩ \\right)",
 					note: null
 				},
 				{
-					id: 8,
+					id: 10,
 					type: "substitution",
 					step:
 						"⎹\\phi⟩ = H^{\\otimes 3}\\frac{1}{\\sqrt{2}}(⎹000⟩ + ⎹111⟩)",
 					note: null
 				},
 				{
-					id: 9,
+					id: 11,
 					type: "simplification",
 					step:
 						"\\frac{1}{\\sqrt{2}} \\left( \\frac{1}{2^{3/2}} \\right) \\left( 2⎹000⟩+2⎹011⟩+2⎹101⟩+2⎹110⟩ \\right)",
@@ -258,7 +258,7 @@ const initial_state = {
 					)
 				},
 				{
-					id: 10,
+					id: 12,
 					type: "",
 					step:
 						"\\frac{1}{2} \\left( +1⎹000⟩+1⎹011⟩+1⎹101⟩+1⎹110⟩ \\right)",

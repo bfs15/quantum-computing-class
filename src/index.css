@@ -75,3 +75,13 @@ a:hover {
 .question-note {
   background: #b9b9b9;
 }
+
+.step-filters-collapsible>div {
+  margin: auto;
+  display: inline-block;
+}
+.question_component>.Collapsible> .Collapsible__trigger {
+  /* margin: auto; */
+  display: inline-block;
+
+}

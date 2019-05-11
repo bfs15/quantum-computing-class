@@ -1,7 +1,8 @@
 import React from 'react'
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import './react-sidenav.css';
 
-const SideQuestions = ({ questions }) => {
+const SideQuestions = ({ questions, onToggle, expanded }) => {
    const sidebarItems = questions.map( question => {
       return (
          <NavItem eventKey="home" key={question.id}>
@@ -17,9 +18,8 @@ const SideQuestions = ({ questions }) => {
 
    return (
       <SideNav className="SideNav"
-         onSelect={(selected) => {
-            // Add your code here
-         }}
+         expanded={expanded}
+         onToggle={onToggle}
       >
          <SideNav.Toggle />
          <SideNav.Nav defaultSelected="home">

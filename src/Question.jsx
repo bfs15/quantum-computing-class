@@ -8,10 +8,13 @@ import type_filters from './type_filters'
 const Question = ({ question, toggleFilter }) => {
    const solutionSteps = question.solution
    .filter(solutionStep => {
+		console.log(solutionStep.step)
+		console.log(solutionStep)
+		console.log(type_filters.type_id[solutionStep.type])
+		console.log(question.type_filters[type_filters.type_id[solutionStep.type]])
       return (
-			!!!solutionStep.type || !!!type_filters.type_id[solutionStep.type] ||
-			question.type_filters[type_filters.type_id[solutionStep.type]]
-				.switch
+			!!!solutionStep.type || (typeof type_filters.type_id[solutionStep.type] === 'undefined') ||
+			question.type_filters[type_filters.type_id[solutionStep.type]].switch
 		);
    })
    .map(solutionStep => {
@@ -31,22 +34,6 @@ const Question = ({ question, toggleFilter }) => {
 				</div>
 
 			</span>
-			// <tbody key={solutionStep.id}>
-			// 	<tr className={""}>
-			// 		<td>[{solutionStep.id}]</td>
-			// 		<td>
-			// 			<MathJax.Context input="tex">
-			// 				<MathJax.Node>
-			// 					{solutionStep.step}
-			// 				</MathJax.Node>
-			// 			</MathJax.Context>
-			// 		</td>
-			// 		<td>{solutionStep.type}</td>
-			// 	</tr>
-			// 	<tr className={"pure-table-odd"}>
-			// 		<td colSpan={3}>{solutionStep.note}</td>
-			// 	</tr>
-			// </tbody>
 		);
    })
 
@@ -73,10 +60,11 @@ const Question = ({ question, toggleFilter }) => {
 				open={true}
 				transitionTime={100}
 			>
+				<span className={"step-filters-collapsible"}>
 				<Collapsible
 					trigger={
 						<label
-							id="menuLink1"
+							id={"step-filters-" + question.id}
 							className="pure-menu-link step_filter_dropdown"
 						>
 							Step filters
@@ -89,11 +77,11 @@ const Question = ({ question, toggleFilter }) => {
 				>
 					{type_filter_element}
 				</Collapsible>
+				</span>
+
 				{question.description}
-				{/* <table className="pure-table">
-					<thead /> */}
-					{solutionSteps}
-				{/* </table> */}
+
+				{solutionSteps}
 			</Collapsible>
 		</div>
 	);

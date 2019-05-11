@@ -1,7 +1,8 @@
 {
-  "name": "todoapp",
+  "name": "math-solutions",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@trendmicro/react-sidenav": "^0.4.5",
     "immutability-helper": "^3.0.0",
