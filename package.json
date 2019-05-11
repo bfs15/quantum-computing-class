@@ -6,6 +6,7 @@
     "@trendmicro/react-sidenav": "^0.4.5",
     "immutability-helper": "^3.0.0",
     "react": "^16.8.6",
+    "react-click-outside": "github:tj/react-click-outside",
     "react-collapsible": "^2.6.0",
     "react-dom": "^16.8.6",
     "react-icons": "^3.7.0",

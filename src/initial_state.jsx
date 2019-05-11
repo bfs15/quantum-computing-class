@@ -61,7 +61,7 @@ const initial_state = {
 				},
 				{
 					id: 3,
-					type: "start",
+					type: "",
 					step: "\\frac{1}{2}(+1⎹00⟩ -1⎹01⟩ +1⎹10⟩ -1⎹11⟩)",
 					note: (
 						<MathJax.Context input="tex">
@@ -97,10 +97,18 @@ const initial_state = {
 			solution: [
 				{
 					id: 0,
-					type: "start",
+					type: "formula",
 					step:
 						"H^{\\otimes n} ⎹u_n⟩ = \\frac{1}{2^{n/2}}\\sum_{x} -1^{x·u}⎹x⟩",
-					note: null
+					note: (
+						<MathJax.Context input="tex">
+							<div className="question_description">
+								{"maybe he wants a description: a superposition of all possible strings, all with the same absolute amplitude (same probability) only changing the sign of an amplitude to negative if it has an odd number of bits in  "}
+								<MathJax.Node inline>{"x * u"}</MathJax.Node>
+								{" , (000·x is odd)"}
+							</div>
+						</MathJax.Context>
+					)
 				}
 			]
 		},
@@ -164,6 +172,13 @@ const initial_state = {
 							<div>
 								{"right side of equation is now "}
 								<MathJax.Node inline>{"\\phi"}</MathJax.Node>
+								<p>
+									{"let's find out the value of "}
+									<MathJax.Node inline>{"H^{\\otimes 3} ⎹000⟩"}</MathJax.Node>
+									{" and "}
+									<MathJax.Node inline>{"H^{\\otimes 3} ⎹111⟩"}</MathJax.Node>
+								</p>
+								
 							</div>
 						</MathJax.Context>
 					)
@@ -176,25 +191,6 @@ const initial_state = {
 					note: (
 						<MathJax.Context input="tex">
 							<div>
-								{"let's analyze "}
-								<MathJax.Node inline>
-									{"H^{\\otimes 3} ⎹000⟩"}
-								</MathJax.Node>
-								{" and "}
-								<MathJax.Node inline>
-									{"H^{\\otimes 3} ⎹111⟩"}
-								</MathJax.Node>
-							</div>
-						</MathJax.Context>
-					)
-				},
-				{
-					id: 5,
-					type: "variable",
-					step: "H^{\\otimes 3} ⎹000⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x)",
-					note: (
-						<MathJax.Context input="tex">
-							<div>
 								<MathJax.Node inline>{"000·x = 0"}</MathJax.Node>
 								{" , so  "}
 								<MathJax.Node inline>{"-1^{000·x}x = x"}</MathJax.Node>
@@ -203,39 +199,45 @@ const initial_state = {
 					)
 				},
 				{
+					id: 5,
+					type: "",
+					step: "H^{\\otimes 3} ⎹000⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x)",
+					note: null
+				},
+				{
 					id: 6,
-					type: "variable",
+					type: "substitution",
 					step:
 						"H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(-1^{111·x}x)",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
-								We have to find out their sum,
-								<br />
-								the x's from ⎹000⟩'s sum will add with x's from ⎹111⟩'s
-								sum,
-								<br />
-								so x's with an even number of bits 1 will become 2x and
+								We have to find out their sum, the x's from ⎹000⟩'s sum will add with x's from ⎹111⟩'s sum, so x's with an even number of bits 1 will become 2x and
 								x's with odd number of bits will cancel out
 							</div>
 						</MathJax.Context>
 					)
 				},
 				{
+					id: 6,
+					type: "factorize",
+					step:
+						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x) + \\frac{1}{2^{3/2}}\\sum_{x}(-1^{111·x}x)",
+					note: null
+				},
+				{
+					id: 6,
+					type: "expand",
+					step:
+						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x -1^{111·x}x)",
+					note: null
+				},
+				{
 					id: 7,
 					type: "",
 					step:
 						"H^{\\otimes 3}(⎹000⟩ + ⎹111⟩) = \\frac{1}{2^{3/2}}\\left( 2⎹000⟩+2⎹011⟩+2⎹101⟩+2⎹110⟩ \\right)",
-					note: (
-						<MathJax.Context input="tex">
-							<div>
-								<MathJax.Node inline>
-									{"\\frac{1}{2^{3/2}}"}
-								</MathJax.Node>
-								{" common factor from the sum"}
-							</div>
-						</MathJax.Context>
-					)
+					note: null
 				},
 				{
 					id: 8,
@@ -248,7 +250,7 @@ const initial_state = {
 					id: 9,
 					type: "simplification",
 					step:
-						"\\frac{1}{\\sqrt{2}} * \\frac{1}{2^{3/2}} \\left( 2⎹000⟩+2⎹011⟩+2⎹101⟩+2⎹110⟩ \\right)",
+						"\\frac{1}{\\sqrt{2}} \\left( \\frac{1}{2^{3/2}} \\right) \\left( 2⎹000⟩+2⎹011⟩+2⎹101⟩+2⎹110⟩ \\right)",
 					note: (
 						<MathJax.Context input="tex">
 							<div />
@@ -383,7 +385,7 @@ const initial_state = {
 					)
 				},
 				{
-					id: 1,
+					id: 2,
 					type: "",
 					step:
 						"\\frac{1}{2 \\sqrt{2} (2 ^{3/2})}  \\left(\\sum_{y \\in \\{0,1\\}^3} -1^{000·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} -1^{001·y}⎹y⟩ + \\sum_{y \\in \\{0,1\\}^3} -1^{010·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} -1^{011·y}⎹y⟩ + \\sum_{y \\in \\{0,1\\}^3} -1^{100·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} -1^{101·y}⎹y⟩ + \\sum_{y \\in \\{0,1\\}^3} -1^{110·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} -1^{111·y}⎹y⟩\\right)",
@@ -410,19 +412,20 @@ const initial_state = {
 											"−H^{\\otimes3}⎹001⟩,\\ \\alpha_{001} = \\frac{-1}{2\\sqrt{2}},\\ sign_{001} = -1"
 										}
 									</MathJax.Node>
-									<p>let's change that and put the sign inside the summation</p>
-									<MathJax.Node>
-										{
-											"(sign_x)H^{\\otimes3} x = \\frac{1}{2 ^{3/2}} \\sum_{y \\in \\{0,1\\}^3} -1^{x·y}sign_x⎹y⟩"
-										}
-									</MathJax.Node>
+								</p>
+								<p>let's change that and put the sign inside the summation
+								<MathJax.Node>
+									{
+										"(sign_x)H^{\\otimes3} x = \\frac{1}{2 ^{3/2}} \\sum_{y \\in \\{0,1\\}^3} -1^{x·y}sign_x⎹y⟩"
+									}
+								</MathJax.Node>
 								</p>
 							</div>
 						</MathJax.Context>
 					)
 				},
 				{
-					id: 2,
+					id: 3,
 					type: "factorize",
 					step:
 						"\\frac{1}{8}  \\left(\\sum_{y} -1^{000·y}sign_{000}⎹y⟩ + \\sum_{y} -1^{001·y}sign_{001}⎹y⟩ + \\sum_{y} -1^{010·y}sign_{010}⎹y⟩ + \\sum_{y} -1^{011·y}sign_{011}⎹y⟩ + \\sum_{y} -1^{100·y}sign_{100}⎹y⟩ + \\sum_{y} -1^{101·y}sign_{101}⎹y⟩ + \\sum_{y} -1^{110·y}sign_{110}⎹y⟩ + \\sum_{y} -1^{111·y}sign_{111}⎹y⟩\\right)",
@@ -445,7 +448,7 @@ const initial_state = {
 					)
 				},
 				{
-					id: 3,
+					id: 4,
 					type: "expand",
 					step:
 						"\\frac{1}{8} \\sum_{x} \\sum_{y} -1^{x·y}sign_{x}⎹y⟩",
@@ -464,7 +467,7 @@ const initial_state = {
 					)
 				},
 				{
-					id: 4,
+					id: 5,
 					type: "",
 					step:
 						"\\frac{1}{8}  \\left(\\sum_x (-1^{x·000}sign_x)⎹000⟩ + \\sum_x (-1^{x·001}sign_x)⎹001⟩ + \\sum_x (-1^{x·010}sign_x)⎹010⟩ + \\sum_x (-1^{x·011}sign_x)⎹011⟩ + \\sum_x (-1^{x·100}sign_x)⎹100⟩ + \\sum_x (-1^{x·101}sign_x)⎹101⟩ + \\sum_x (-1^{x·110}sign_x)⎹110⟩ + \\sum_x (-1^{x·111}sign_x)⎹111⟩ \\right)",
@@ -507,7 +510,7 @@ const initial_state = {
 								{" "}
 								is either 1 or -1, and each sum will be between -8 and 8<sup>*</sup>, since we sum 8 terms. If a string has a sum equal to 8 it means its probability is 1
 								<p>this means you can just make a table, rows are different y and columns are x</p>
-								<table class="pure-table">
+								<table className="pure-table">
 									<thead>
 										<tr>
 											<th>y</th>
@@ -627,7 +630,7 @@ const initial_state = {
 					)
 				},
 				{
-					id: 5,
+					id: 6,
 					type: "",
 					step:
 						"\\frac{1}{8} \\left( 8⎹001⟩ \\right)",

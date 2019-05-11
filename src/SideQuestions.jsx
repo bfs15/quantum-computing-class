@@ -6,7 +6,7 @@ const SideQuestions = ({ questions }) => {
       return (
          <NavItem eventKey="home" key={question.id}>
             <NavIcon>
-               <i className="fa fa-fw" style={{ fontSize: '1.75em' }} />
+               <a className="" href={"#Question" + question.id}>{question.id}</a>
             </NavIcon>
             <NavText>
                <a className="" href={"#Question" + question.id}>{question.title}</a>

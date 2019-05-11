@@ -16,22 +16,37 @@ const Question = ({ question, toggleFilter }) => {
    })
    .map(solutionStep => {
 		return (
-			<tbody key={solutionStep.id}>
-				<tr className={""}>
-					<td>[{solutionStep.id}]</td>
-					<td>
-						<MathJax.Context input="tex">
-							<MathJax.Node>
-								{solutionStep.step}
-							</MathJax.Node>
-						</MathJax.Context>
-					</td>
-					<td>{solutionStep.type}</td>
-				</tr>
-				<tr className={"pure-table-odd"}>
-					<td colSpan={3}>{solutionStep.note}</td>
-				</tr>
-			</tbody>
+			<span key={solutionStep.id}>
+				<p>[{solutionStep.id}]</p>
+				<p>
+				<MathJax.Context input="tex">
+					<MathJax.Node>
+						{solutionStep.step}
+					</MathJax.Node>
+				</MathJax.Context>
+				</p>
+				<p>{solutionStep.type}</p>
+				<div className="question-note">
+				{solutionStep.note}
+				</div>
+
+			</span>
+			// <tbody key={solutionStep.id}>
+			// 	<tr className={""}>
+			// 		<td>[{solutionStep.id}]</td>
+			// 		<td>
+			// 			<MathJax.Context input="tex">
+			// 				<MathJax.Node>
+			// 					{solutionStep.step}
+			// 				</MathJax.Node>
+			// 			</MathJax.Context>
+			// 		</td>
+			// 		<td>{solutionStep.type}</td>
+			// 	</tr>
+			// 	<tr className={"pure-table-odd"}>
+			// 		<td colSpan={3}>{solutionStep.note}</td>
+			// 	</tr>
+			// </tbody>
 		);
    })
 
@@ -75,10 +90,10 @@ const Question = ({ question, toggleFilter }) => {
 					{type_filter_element}
 				</Collapsible>
 				{question.description}
-				<table className="pure-table">
-					<thead />
+				{/* <table className="pure-table">
+					<thead /> */}
 					{solutionSteps}
-				</table>
+				{/* </table> */}
 			</Collapsible>
 		</div>
 	);
