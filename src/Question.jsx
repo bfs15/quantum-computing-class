@@ -28,10 +28,10 @@ const Question = ({ question, toggleFilter }) => {
 					</MathJax.Node>
 				</MathJax.Context>
 				</p>
-				<p>{solutionStep.type}</p>
 				<div className="question-note">
 				{solutionStep.note}
 				</div>
+				<p>{solutionStep.type}</p>
 
 			</span>
 		);
@@ -80,6 +80,7 @@ const Question = ({ question, toggleFilter }) => {
 				</span>
 
 				{question.description}
+				{question.note}
 
 				{solutionSteps}
 			</Collapsible>

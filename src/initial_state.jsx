@@ -33,9 +33,9 @@ const initial_state = {
 				},
 				{
 					id: 1,
-					type: "substitution",
+					type: "substitute",
 					step:
-						"H^{\\otimes n}⎹u_n⟩ = \\frac{1}{2^{n/2}}\\sum_{x}( -1^{x·u}⎹x⟩)",
+						"H^{\\otimes n}⎹u_n⟩ = \\frac{1}{2^{n/2}}\\sum_{x}( (-1)^{x·u}⎹x⟩)",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -50,7 +50,7 @@ const initial_state = {
 					id: 2,
 					type: "expand",
 					step:
-						"H^{\\otimes 2} ⎹01⟩ = \\frac{1}{2}\\sum_{x}( -1^{x·⎹01⟩}⎹x⟩)",
+						"H^{\\otimes 2} ⎹01⟩ = \\frac{1}{2}\\sum_{x}( (-1)^{x·⎹01⟩}⎹x⟩)",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -99,7 +99,7 @@ const initial_state = {
 					id: 0,
 					type: "formula",
 					step:
-						"H^{\\otimes n} ⎹u_n⟩ = \\frac{1}{2^{n/2}}\\sum_{x} -1^{x·u}⎹x⟩",
+						"H^{\\otimes n} ⎹u_n⟩ = \\frac{1}{2^{n/2}}\\sum_{x} (-1)^{x·u}⎹x⟩",
 					note: (
 						<MathJax.Context input="tex">
 							<div className="question_description">
@@ -141,7 +141,7 @@ const initial_state = {
 				},
 				{
 					id: 1,
-					type: "simplification",
+					type: "simplify",
 					step:
 						"H^{\\otimes 3}H^{\\otimes 3} ⎹\\phi⟩ = H^{\\otimes 3}\\frac{1}{\\sqrt{2}}(⎹000⟩ + ⎹111⟩)",
 					note: (
@@ -157,7 +157,7 @@ const initial_state = {
 				},
 				{
 					id: 2,
-					type: "distributive",
+					type: "distribute",
 					step:
 						"⎹\\phi⟩ = H^{\\otimes 3}\\frac{1}{\\sqrt{2}}(⎹000⟩ + ⎹111⟩)",
 					note: null
@@ -185,15 +185,15 @@ const initial_state = {
 				},
 				{
 					id: 4,
-					type: "simplification",
+					type: "simplify",
 					step:
-						"H^{\\otimes 3} ⎹000⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(-1^{000·x}x)",
+						"H^{\\otimes 3} ⎹000⟩ = \\frac{1}{2^{3/2}}\\sum_{x}((-1)^{000·x}x)",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
 								<MathJax.Node inline>{"000·x = 0"}</MathJax.Node>
 								{" , so  "}
-								<MathJax.Node inline>{"-1^{000·x}x = x"}</MathJax.Node>
+								<MathJax.Node inline>{"(-1)^{000·x}x = x"}</MathJax.Node>
 							</div>
 						</MathJax.Context>
 					)
@@ -206,9 +206,9 @@ const initial_state = {
 				},
 				{
 					id: 6,
-					type: "substitution",
+					type: "substitute",
 					step:
-						"H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(-1^{111·x}x)",
+						"H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}((-1)^{111·x}x)",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -222,14 +222,14 @@ const initial_state = {
 					id: 7,
 					type: "factorize",
 					step:
-						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x) + \\frac{1}{2^{3/2}}\\sum_{x}(-1^{111·x}x)",
+						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x) + \\frac{1}{2^{3/2}}\\sum_{x}((-1)^{111·x}x)",
 					note: null
 				},
 				{
 					id: 8,
 					type: "expand",
 					step:
-						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x -1^{111·x}x)",
+						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x (-1)^{111·x}x)",
 					note: null
 				},
 				{
@@ -241,14 +241,14 @@ const initial_state = {
 				},
 				{
 					id: 10,
-					type: "substitution",
+					type: "substitute",
 					step:
 						"⎹\\phi⟩ = H^{\\otimes 3}\\frac{1}{\\sqrt{2}}(⎹000⟩ + ⎹111⟩)",
 					note: null
 				},
 				{
 					id: 11,
-					type: "simplification",
+					type: "simplify",
 					step:
 						"\\frac{1}{\\sqrt{2}} \\left( \\frac{1}{2^{3/2}} \\right) \\left( 2⎹000⟩+2⎹011⟩+2⎹101⟩+2⎹110⟩ \\right)",
 					note: (
@@ -312,9 +312,24 @@ const initial_state = {
 			solution: [
 				{
 					id: 0,
+					type: "factorize",
+					step:
+						"\\frac{1}{2^{n/2} \\sqrt{2}} \\sum_{x} \\left(⎹x⟩+ (-1)^{⎹1^n⟩·x}⎹x⟩ \\right)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								{
+									""
+								}
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 1,
 					type: "",
 					step:
-						"\\frac{1}{2^{n/2} \\sqrt{2}} \\left(⎹x⟩+ (-1)^{⎹1^n⟩·x}⎹x⟩ \\right)",
+						"\\frac{1}{2^{n/2} \\sqrt{2}} \\sum_{x} \\left( (1 + (-1)^{⎹1^n⟩·x})⎹x⟩ \\right)",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -344,6 +359,7 @@ const initial_state = {
 					</h4>
 				</MathJax.Context>
 			),
+			note: "This question has 2 different approaches to solving it, one starts here and the other one: steps 0 and 1 + [8:11]",
 			solution: [
 				{
 					id: 0,
@@ -353,6 +369,7 @@ const initial_state = {
 					note: (
 						<MathJax.Context input="tex">
 							<div>
+								<p>
 								<MathJax.Node>
 									{
 										"\\sum_{x \\in \\{0, 1\\}^n} \\alpha_x |x⟩ -> \\sum_{y \\in \\{0, 1\\}^n} \\beta_y |y⟩"
@@ -360,24 +377,55 @@ const initial_state = {
 								</MathJax.Node>
 
 								{
-									"The Fourier sampling technique applies Hadamard transform in a superposition and measures it afterward, obtaining the string x with probability "
+									"The Fourier sampling technique applies Hadamard transform in a superposition and measures it afterward, obtaining the string y with probability "
 								}
-								<MathJax.Node inline>{"|\\beta|^2"}</MathJax.Node>
+									<MathJax.Node inline>{"|\\beta_y|^2"}</MathJax.Node>
+								</p>
+								<p>
+								{
+									"So we have to find all "
+								}
+									<MathJax.Node inline>{"\\beta_y"}</MathJax.Node>
+								</p>
 							</div>
 						</MathJax.Context>
 					)
 				},
 				{
 					id: 1,
-					type: "",
+					type: "factorize",
 					step:
 						"\\frac{1}{2 \\sqrt{2}}  \\left(H^{\\otimes3}⎹000⟩ − H^{\\otimes3}⎹001⟩ + H^{\\otimes3}⎹010⟩ − H^{\\otimes3}⎹011⟩ + H^{\\otimes3}⎹100⟩ − H^{\\otimes3}⎹101⟩ + H^{\\otimes3}⎹110⟩ − H^{\\otimes3}⎹111⟩\\right)",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
+								<p>
+									{"Since the sign of each term on the expression above is alternating and has all x in {0,1}^3, its possible to write the above as a sum using "}
+								<MathJax.Node inline>
+										{
+											"(-1)^{x}"
+										}
+									</MathJax.Node>
+									{" that alternates [+1,-1,...]"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 2,
+					type: "expand",
+					step:
+						"\\frac{1}{2 \\sqrt{2}} \\sum_{x} \\left( (-1)^{x} H^{\\otimes3}⎹x⟩\\right)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									As always:
+								</p>
 								<MathJax.Node>
 									{
-										"H^{\\otimes3} x = \\frac{1}{2 ^{3/2}} \\sum_{y \\in \\{0,1\\}^3} -1^{x·y}⎹y⟩"
+										"H^{\\otimes3}⎹x⟩ = \\frac{1}{2 ^{3/2}} \\sum_{y \\in \\{0,1\\}^3} (-1)^{x·y}⎹y⟩"
 									}
 								</MathJax.Node>
 							</div>
@@ -385,16 +433,247 @@ const initial_state = {
 					)
 				},
 				{
-					id: 2,
-					type: "",
+					id: 3,
+					type: "simplify",
 					step:
-						"\\frac{1}{2 \\sqrt{2} (2 ^{3/2})}  \\left(\\sum_{y \\in \\{0,1\\}^3} -1^{000·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} -1^{001·y}⎹y⟩ + \\sum_{y \\in \\{0,1\\}^3} -1^{010·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} -1^{011·y}⎹y⟩ + \\sum_{y \\in \\{0,1\\}^3} -1^{100·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} -1^{101·y}⎹y⟩ + \\sum_{y \\in \\{0,1\\}^3} -1^{110·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} -1^{111·y}⎹y⟩\\right)",
+						"\\frac{1}{2 \\sqrt{2}} \\sum_{x} \\left( (-1)^{x} \\frac{1}{2 ^{3/2}} \\sum_{y \\in \\{0,1\\}^3} (-1)^{x·y}⎹y⟩\\right)",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
-								{
-									"That is a lot of summations!"}
+								<p>
+									{"Move inside: "}
+									<MathJax.Node inline>
+									{"(-1)^{x}"}
+									</MathJax.Node>
+								</p>
+								<p>
+									{"  Move outside: "}
+									<MathJax.Node inline>
+										{"\\frac{1}{2 ^{3/2}}"}
+									</MathJax.Node>
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 4,
+					type: "rearrange",
+					step:
+						"\\frac{1}{2 \\sqrt{2}} \\left( \\frac{1}{2 ^{3/2}} \\right) \\sum_{x} \\sum_{y \\in \\{0,1\\}^3} \\left( (-1)^{x}(-1)^{x·y}⎹y⟩\\right)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>{"Swap x and y sums positions"}</p>
+								<p>
+									{"and also: "}
+									<MathJax.Node inline>
+										{"(a)^{x} (a)^{y} = a^{(x+y)}"}
+									</MathJax.Node>
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 5,
+					type: "rearrange",
+					step:
+						"\\frac{1}{8} \\sum_{y \\in \\{0,1\\}^3} \\sum_{x} \\left( (-1)^{x·y+x}⎹y⟩\\right)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 6,
+					type: "",
+					step:
+						"\\sum_{y \\in \\{0,1\\}^3} \\frac{1}{8} \\sum_{x} \\left( (-1)^{x·y+x}\\right) ⎹y⟩",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+								{"Now we can easily calculate each "}
+								<MathJax.Node inline>
+									{"\\beta_y = \\frac{1}{8}  \\sum_{x} \\left( (-1)^{x·y+x}\\right)"}
+								</MathJax.Node>
+								</p>
+								{"In other words, to find the amplitude of each of the resulting qubits ⎹y⟩ ( the amplitute is "}
+								<MathJax.Node inline>
+								{"\\beta_y"}
+								</MathJax.Node>
+								{ " we were looking for) just solve the corresponding summation in front of y." }
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 7,
+					type: "",
+					step:
+						"\\beta_{001} = \\frac{1}{8} \\left( 8 \\right) = 1",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"When you calculate the amplitude for y =⎹001⟩ , you will find that it has 100% probability, so you can stop calculating, the rest have 0% chance."}
+								</p>
+								<p>
+									{"When do the calculations you can stop after you found 100% of the amplitude, in this case after you calculated "}
+									<MathJax.Node inline>{"\\beta_{001}"}</MathJax.Node>
+								</p>
+								<p>
+									{"Conclusion, possible states:⎹001⟩"}
+								</p>
+								<p>
+									{"You can calculate these amplitudes pretty fast if you make a table:"}
+								</p>
+								<p>
+									{"each row is a y, each column is a x, each cel = (-1)^{x·y+x}, the sum of a row = amplitude*8"}
+								</p>
+								<table className="pure-table">
+									<thead>
+										<tr>
+											<th>y</th>
+											<th>+000</th>
+											<th>-001</th>
+											<th>+010</th>
+											<th>-011</th>
+											<th>+100</th>
+											<th>-101</th>
+											<th>+110</th>
+											<th>-111</th>
+											<th>sum</th>
+										</tr>
+									</thead>
 
+									<tbody>
+										<tr>
+											<td>000</td>
+											<td>1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>001</td>
+											<td>1</td>
+											<td>+1</td>
+											<td>+1</td>
+											<td>+1</td>
+											<td>+1</td>
+											<td>+1</td>
+											<td>+1</td>
+											<td>+1</td>
+											<td>+8</td>
+										</tr>
+										<tr>
+											<td>010</td>
+											<td>1</td>
+											<td>-1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>011</td>
+											<td>1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>-1</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>100</td>
+											<td>1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>101</td>
+											<td>1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>110</td>
+											<td>1</td>
+											<td>-1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>111</td>
+											<td>1</td>
+											<td>+1</td>
+											<td>-1</td>
+											<td>-1</td>
+											<td>-1</td>
+											<td>-1</td>
+											<td>+1</td>
+											<td>+1</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</MathJax.Context>
+					)
+				},
+
+
+				{
+					id: 8,
+					type: "",
+					step:
+						"\\frac{1}{2 \\sqrt{2} (2 ^{3/2})}  \\left(\\sum_{y \\in \\{0,1\\}^3} (-1)^{000·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} (-1)^{001·y}⎹y⟩ + \\sum_{y \\in \\{0,1\\}^3} (-1)^{010·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} (-1)^{011·y}⎹y⟩ + \\sum_{y \\in \\{0,1\\}^3} (-1)^{100·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} (-1)^{101·y}⎹y⟩ + \\sum_{y \\in \\{0,1\\}^3} (-1)^{110·y}⎹y⟩ − \\sum_{y \\in \\{0,1\\}^3} (-1)^{111·y}⎹y⟩\\right)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"As always:"}
+								</p>
+								<MathJax.Node>
+									{
+										"H^{\\otimes3}⎹x⟩ = \\frac{1}{2 ^{3/2}} \\sum_{y \\in \\{0,1\\}^3} (-1)^{x·y}⎹y⟩"
+									}
+								</MathJax.Node>
+								<p>
+								{"That is a lot of summations!"}
+								</p>
 								<p>
 								<MathJax.Node inline>
 									{
@@ -416,7 +695,7 @@ const initial_state = {
 								<p>let's change that and put the sign inside the summation
 								<MathJax.Node>
 									{
-										"(sign_x)H^{\\otimes3} x = \\frac{1}{2 ^{3/2}} \\sum_{y \\in \\{0,1\\}^3} -1^{x·y}sign_x⎹y⟩"
+										"(sign_x)H^{\\otimes3} x = \\frac{1}{2 ^{3/2}} \\sum_{y \\in \\{0,1\\}^3} (-1)^{x·y}sign_x⎹y⟩"
 									}
 								</MathJax.Node>
 								</p>
@@ -425,10 +704,10 @@ const initial_state = {
 					)
 				},
 				{
-					id: 3,
+					id: 9,
 					type: "factorize",
 					step:
-						"\\frac{1}{8}  \\left(\\sum_{y} -1^{000·y}sign_{000}⎹y⟩ + \\sum_{y} -1^{001·y}sign_{001}⎹y⟩ + \\sum_{y} -1^{010·y}sign_{010}⎹y⟩ + \\sum_{y} -1^{011·y}sign_{011}⎹y⟩ + \\sum_{y} -1^{100·y}sign_{100}⎹y⟩ + \\sum_{y} -1^{101·y}sign_{101}⎹y⟩ + \\sum_{y} -1^{110·y}sign_{110}⎹y⟩ + \\sum_{y} -1^{111·y}sign_{111}⎹y⟩\\right)",
+						"\\frac{1}{8}  \\left(\\sum_{y} (-1)^{000·y}sign_{000}⎹y⟩ + \\sum_{y} (-1)^{001·y}sign_{001}⎹y⟩ + \\sum_{y} (-1)^{010·y}sign_{010}⎹y⟩ + \\sum_{y} (-1)^{011·y}sign_{011}⎹y⟩ + \\sum_{y} (-1)^{100·y}sign_{100}⎹y⟩ + \\sum_{y} (-1)^{101·y}sign_{101}⎹y⟩ + \\sum_{y} (-1)^{110·y}sign_{110}⎹y⟩ + \\sum_{y} (-1)^{111·y}sign_{111}⎹y⟩\\right)",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -448,10 +727,10 @@ const initial_state = {
 					)
 				},
 				{
-					id: 4,
+					id: 10,
 					type: "expand",
 					step:
-						"\\frac{1}{8} \\sum_{x} \\sum_{y} -1^{x·y}sign_{x}⎹y⟩",
+						"\\frac{1}{8} \\sum_{x} \\sum_{y} (-1)^{x·y}sign_{x}⎹y⟩",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -467,10 +746,10 @@ const initial_state = {
 					)
 				},
 				{
-					id: 5,
+					id: 11,
 					type: "",
 					step:
-						"\\frac{1}{8}  \\left(\\sum_x (-1^{x·000}sign_x)⎹000⟩ + \\sum_x (-1^{x·001}sign_x)⎹001⟩ + \\sum_x (-1^{x·010}sign_x)⎹010⟩ + \\sum_x (-1^{x·011}sign_x)⎹011⟩ + \\sum_x (-1^{x·100}sign_x)⎹100⟩ + \\sum_x (-1^{x·101}sign_x)⎹101⟩ + \\sum_x (-1^{x·110}sign_x)⎹110⟩ + \\sum_x (-1^{x·111}sign_x)⎹111⟩ \\right)",
+						"\\frac{1}{8}  \\left(\\sum_x ((-1)^{x·000}sign_x)⎹000⟩ + \\sum_x ((-1)^{x·001}sign_x)⎹001⟩ + \\sum_x ((-1)^{x·010}sign_x)⎹010⟩ + \\sum_x ((-1)^{x·011}sign_x)⎹011⟩ + \\sum_x ((-1)^{x·100}sign_x)⎹100⟩ + \\sum_x ((-1)^{x·101}sign_x)⎹101⟩ + \\sum_x ((-1)^{x·110}sign_x)⎹110⟩ + \\sum_x ((-1)^{x·111}sign_x)⎹111⟩ \\right)",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -491,7 +770,7 @@ const initial_state = {
 
 								<MathJax.Node >
 									{
-										"\\beta_y = \\frac{1}{8} \\sum_x (-1^{x·y}sign_x)"
+										"\\beta_y = \\frac{1}{8} \\sum_x ((-1)^{x·y}sign_x)"
 									}
 								</MathJax.Node>
 								<MathJax.Node >
@@ -504,7 +783,7 @@ const initial_state = {
 								}
 								<MathJax.Node inline>
 									{
-										"(-1^{x·001}sign_x)"
+										"((-1)^{x·001}sign_x)"
 									}
 								</MathJax.Node>
 								{" "}
@@ -625,23 +904,6 @@ const initial_state = {
 										</tr>
 									</tbody>
 								</table>
-							</div>
-						</MathJax.Context>
-					)
-				},
-				{
-					id: 6,
-					type: "",
-					step:
-						"\\frac{1}{8} \\left( 8⎹001⟩ \\right)",
-					note: (
-						<MathJax.Context input="tex">
-							<div>
-								<p>
-									100% chance of ⎹001⟩, if you do the calculations in order of y you can stop after you found 100% of the amplitude (in this case after you found)
-									{" "}
-									<MathJax.Node inline>{"\\beta_{001}"}</MathJax.Node>
-								</p>
 							</div>
 						</MathJax.Context>
 					)
