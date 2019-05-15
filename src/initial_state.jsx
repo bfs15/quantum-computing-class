@@ -287,9 +287,21 @@ const initial_state = {
 								"Desenhe o circuito da Amostragem de Fourier para uma entrada de n qubits"
 							}
 						</h4>
-						<img src={"./Fourier-Sampling.png"} alt={"http://www.inf.ufpr.br/murilo/cq/slides/QCslide09.pdf pg 30"}/>
 					</span>
 				</MathJax.Context>
+			),
+			note: (
+			<MathJax.Context input="tex">
+				<span>
+					<img src={"./Fourier-Sampling.png"} alt={"http://www.inf.ufpr.br/murilo/cq/slides/QCslide09.pdf pg 30"} />
+					<p>
+						{
+							"The Fourier sampling technique applies Hadamard transform in a superposition and measures it afterward, obtaining the string y with probability "
+						}
+						<MathJax.Node inline>{"|\\beta_y|^2"}</MathJax.Node>
+					</p>
+				</span>
+			</MathJax.Context>
 			),
 			solution: []
 		},
