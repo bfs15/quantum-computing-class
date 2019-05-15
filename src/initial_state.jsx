@@ -73,7 +73,7 @@ const initial_state = {
 								</MathJax.Node>
 								{" Means ⎹strings⟩ which have the "}
 								<MathJax.Node inline>{"bit_1=1"}</MathJax.Node>
-								{" are *(-1)"}
+								{" have the amplitude *(-1)"}
 							</div>
 						</MathJax.Context>
 					)
@@ -287,7 +287,7 @@ const initial_state = {
 								"Desenhe o circuito da Amostragem de Fourier para uma entrada de n qubits"
 							}
 						</h4>
-						<p>* look at the slides</p>
+						<img src={"./Fourier-Sampling.png"} alt={"http://www.inf.ufpr.br/murilo/cq/slides/QCslide09.pdf pg 30"}/>
 					</span>
 				</MathJax.Context>
 			),
@@ -930,7 +930,169 @@ const initial_state = {
 					</h4>
 				</MathJax.Context>
 			),
-			solution: []
+			solution: [
+				{
+					id: 0,
+					type: "expand",
+					step: "U_f ⎹x⟩ ⎹−⟩ = (−1)^{f(x)} ⎹x⟩ ⎹−⟩",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<MathJax.Node inline>{"⎹−⟩ = \\frac{1}{\\sqrt{2}} (⎹0⟩ -⎹1⟩)"} </MathJax.Node>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 1,
+					type: "distribute",
+					step: "U_f ⎹x⟩ \\frac{1}{\\sqrt{2}} (⎹0⟩ -⎹1⟩)",
+					note: null
+				},
+				{
+					id: 2,
+					type: "formula",
+					step: "\\frac{1}{\\sqrt{2}} (U_f ⎹x⟩ ⎹0⟩ -U_f ⎹x⟩ ⎹1⟩)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<img src={"./Uf.png"} alt={""}/>
+								<p>
+									{"By definition "}
+								</p>
+								<MathJax.Node inline>{"U_f(⎹x⟩⎹b⟩) = ⎹x⟩ ⎹b \\oplus f(x)⟩"} </MathJax.Node>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 3,
+					type: "split",
+					step: "\\frac{1}{\\sqrt{2}} (⎹x⟩ ⎹0 \\oplus f(x)⟩ - ⎹x⟩ ⎹1 \\oplus f(x)⟩)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"Now calculate each case, f(x)=0 and f(x)=1"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 4,
+					type: "simplify",
+					step: "\\frac{1}{\\sqrt{2}} (⎹x⟩ ⎹0 \\oplus 0⟩ - ⎹x⟩ ⎹1 \\oplus 0⟩)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"case f(x)=0"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 5,
+					type: "factorize",
+					step: "\\frac{1}{\\sqrt{2}} (⎹x⟩ ⎹0⟩ - ⎹x⟩ ⎹1⟩)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"We want to rearrange it to find ⎹(0⟩ - ⎹1⟩) = ⎹-⟩"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 6,
+					type: "substitute",
+					step: "\\frac{1}{\\sqrt{2}}⎹x⟩ (⎹0⟩ -⎹1⟩ )",
+					note: null
+				},
+				{
+					id: 7,
+					type: "",
+					step: "\\frac{1}{\\sqrt{2}}⎹x⟩⎹-⟩",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									<MathJax.Node inline>
+										{" = \\frac{1}{\\sqrt{2}} (-1)^{0}⎹x⟩⎹-⟩  = \\frac{1}{\\sqrt{2}} (-1)^{f(x)}⎹x⟩⎹-⟩ "}
+									</MathJax.Node>
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+
+				{
+					id: 8,
+					type: "simplify",
+					step: "\\frac{1}{\\sqrt{2}} (⎹x⟩ ⎹0 \\oplus 1⟩ - ⎹x⟩ ⎹1 \\oplus 1⟩)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"case f(x)=1"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 9,
+					type: "rearrange",
+					step: "\\frac{1}{\\sqrt{2}} (⎹x⟩ ⎹1⟩ - ⎹x⟩ ⎹0⟩)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"We want to rearrange it to find ⎹(0⟩ - ⎹1⟩) = ⎹-⟩"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 10,
+					type: "factorize",
+					step: "\\frac{1}{\\sqrt{2}} (- ⎹x⟩ ⎹0⟩ + ⎹x⟩ ⎹1⟩ )",
+					note: null
+				},
+				{
+					id: 11,
+					type: "substitute",
+					step: "\\frac{1}{\\sqrt{2}} (-1)⎹x⟩(+⎹0⟩ -⎹1⟩ )",
+					note: null
+				},
+				{
+					id: 12,
+					type: "",
+					step: "\\frac{1}{\\sqrt{2}} (-1)⎹x⟩⎹-⟩",
+					note: null
+				},
+				{
+					id: 13,
+					type: "",
+					step: "\\frac{1}{\\sqrt{2}} (-1)⎹x⟩⎹-⟩",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									<MathJax.Node inline>
+										{" = \\frac{1}{\\sqrt{2}} (-1)^{1}⎹x⟩⎹-⟩  = \\frac{1}{\\sqrt{2}} (-1)^{f(x)}⎹x⟩⎹-⟩ "}
+									</MathJax.Node>
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+			]
 		},
 		{
 			id: 7,
@@ -945,7 +1107,8 @@ const initial_state = {
 					</h4>
 				</MathJax.Context>
 			),
-			solution: []
+			solution: [
+			]
 		},
 		{
 			id: 8,

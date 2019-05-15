@@ -8,10 +8,6 @@ import type_filters from './type_filters'
 const Question = ({ question, toggleFilter }) => {
    const solutionSteps = question.solution
    .filter(solutionStep => {
-		console.log(solutionStep.step)
-		console.log(solutionStep)
-		console.log(type_filters.type_id[solutionStep.type])
-		console.log(question.type_filters[type_filters.type_id[solutionStep.type]])
       return (
 			!!!solutionStep.type || (typeof type_filters.type_id[solutionStep.type] === 'undefined') ||
 			question.type_filters[type_filters.type_id[solutionStep.type]].switch
