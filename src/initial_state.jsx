@@ -1141,13 +1141,14 @@ const initial_state = {
 								</p>
 								<p>{"But with quantum computing we can output a superposition."}</p>
 								<p>{"Let's try using phase kick-back (last qubit⎹-⟩) with input "}</p>
-								<MathJax.Node inline>{"x = H^{\\otimes n}⎹0⟩ = \\frac{1}{\\sqrt{2^n}}\\sum_x⎹x⟩"}</MathJax.Node>
+								<MathJax.Node>{"x = H^{\\otimes n}⎹0⟩ = \\frac{1}{\\sqrt{2^n}}\\sum_x⎹x⟩"}</MathJax.Node>
+								<img src={"./Bernstein.png"} alt="Bernstein circuit"></img>
 							</div>
 						</MathJax.Context>
 					)
 				},
 				{
-					id: 0,
+					id: 1,
 					type: "",
 					step: "U_f⎹x⟩⎹-⟩ = \\frac{1}{\\sqrt{2^n}} \\sum_x (-1)^{f(x)}⎹x⟩ ⎹-⟩",
 					note: (
@@ -1185,7 +1186,7 @@ const initial_state = {
 					)
 				},
 				{
-					id: 0,
+					id: 2,
 					type: "",
 					step: "\\frac{1}{\\sqrt{2^n}} \\sum_x (-1)^{x·a}⎹x⟩ ⎹-⟩",
 					note: (
@@ -1208,7 +1209,7 @@ const initial_state = {
 					)
 				},
 				{
-					id: 0,
+					id: 3,
 					type: "",
 					step: "H^{\\otimes n} \\frac{1}{\\sqrt{2^n}} \\sum_x (-1)^{x·a}⎹x⟩ = ⎹a⟩",
 					note: (
@@ -1230,14 +1231,27 @@ const initial_state = {
 			description: (
 				<MathJax.Context input="tex">
 					<h4 className="question_description">
-						"Descreva o Algoritmo de Simon. (qual é o problema, quais são
-						as etapas do algoritmo, qual é o circuito quântico, qual é a
-						parte clássica, os estados dos qubits em cada parte do
-						circuito, etc)."
+						{"Descreva o Algoritmo de Simon. (qual é o problema, quais são as etapas do algoritmo, qual é o circuito quântico, qual é a parte clássica, os  estados dos qubits em cada parte do circuito, etc)."}
 					</h4>
 				</MathJax.Context>
 			),
-			solution: []
+			solution: [
+				{
+					id: 0,
+					type: "",
+					step: "",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{""}
+								</p>
+								<img src={"./Simon.png"} alt="Simon circuit"></img>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				]
 		},
 		{
 			id: 9,
