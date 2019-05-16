@@ -35,7 +35,7 @@ const initial_state = {
 					id: 1,
 					type: "substitute",
 					step:
-						"H^{\\otimes n}⎹u_n⟩ = \\frac{1}{2^{n/2}}\\sum_{x}( (-1)^{x·u}⎹x⟩)",
+						"H^{\\otimes n}⎹u_n⟩ = \\frac{1}{2^{n/2}}\\sum_{x} (-1)^{x·u}⎹x⟩",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -50,7 +50,7 @@ const initial_state = {
 					id: 2,
 					type: "expand",
 					step:
-						"H^{\\otimes 2} ⎹01⟩ = \\frac{1}{2}\\sum_{x}( (-1)^{x·⎹01⟩}⎹x⟩)",
+						"H^{\\otimes 2} ⎹01⟩ = \\frac{1}{2}\\sum_{x} (-1)^{x·⎹01⟩}⎹x⟩",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -187,7 +187,7 @@ const initial_state = {
 					id: 4,
 					type: "simplify",
 					step:
-						"H^{\\otimes 3} ⎹000⟩ = \\frac{1}{2^{3/2}}\\sum_{x}((-1)^{000·x}x)",
+						"H^{\\otimes 3} ⎹000⟩ = \\frac{1}{2^{3/2}}\\sum_{x} (-1)^{000·x}x",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -201,14 +201,14 @@ const initial_state = {
 				{
 					id: 5,
 					type: "",
-					step: "H^{\\otimes 3} ⎹000⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x)",
+					step: "H^{\\otimes 3} ⎹000⟩ = \\frac{1}{2^{3/2}}\\sum_{x} (x)",
 					note: null
 				},
 				{
 					id: 6,
 					type: "substitute",
 					step:
-						"H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}((-1)^{111·x}x)",
+						"H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x} (-1)^{111·x}x",
 					note: (
 						<MathJax.Context input="tex">
 							<div>
@@ -222,14 +222,14 @@ const initial_state = {
 					id: 7,
 					type: "factorize",
 					step:
-						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x) + \\frac{1}{2^{3/2}}\\sum_{x}((-1)^{111·x}x)",
+						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}( x ) + \\frac{1}{2^{3/2}}\\sum_{x}( (-1)^{111·x}x )",
 					note: null
 				},
 				{
 					id: 8,
 					type: "expand",
 					step:
-						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}(x (-1)^{111·x}x)",
+						"H^{\\otimes 3} ⎹000⟩ + H^{\\otimes 3} ⎹111⟩ = \\frac{1}{2^{3/2}}\\sum_{x}( x (-1)^{111·x}x )",
 					note: null
 				},
 				{
@@ -1120,6 +1120,107 @@ const initial_state = {
 				</MathJax.Context>
 			),
 			solution: [
+				{
+					id: 0,
+					type: "",
+					step: "f:\\{0,1\\}^n -> \\{0,1\\}",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"f(x) = x·a , for unknown string a"}
+								</p>
+								<p>
+									{"The problem has for input a function f and output is a. So to find out a, you can only make queries by inputting a string into f."}
+								</p>
+								<p>
+									{"A optimal algorithm in classical computation is making n queries f(x_i), for i=1,...,n  where x_i only has the i-th bit equal to 1. Each query reveals a bit of the string a."}
+								</p>
+								<p>
+									{"It is optimal by the argument that each query has at most a bit of information since the output is binary, if you want to find out n bits of information of the string a you have to perform at least n queries."}
+								</p>
+								<p>{"But with quantum computing we can output a superposition."}</p>
+								<p>{"Let's try using phase kick-back (last qubit⎹-⟩) with input "}</p>
+								<MathJax.Node inline>{"x = H^{\\otimes n}⎹0⟩ = \\frac{1}{\\sqrt{2^n}}\\sum_x⎹x⟩"}</MathJax.Node>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 0,
+					type: "",
+					step: "U_f⎹x⟩⎹-⟩ = \\frac{1}{\\sqrt{2^n}} \\sum_x (-1)^{f(x)}⎹x⟩ ⎹-⟩",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									<MathJax.Node inline>
+										{"(-1)^{f(x)} = (-1)^{a·x}"}
+									</MathJax.Node>
+									{" comes from phase  kick-back."}
+								</p>
+								<p>
+									{"Imagine for example that "}
+									<MathJax.Node inline>
+										{"a = 001"}
+									</MathJax.Node>
+									{". In this case the resulting sum would look like"}
+									<MathJax.Node>
+										{"(+⎹0⟩ -⎹1⟩ +⎹2⟩ -⎹3⟩ +⎹4⟩ -⎹5⟩ +⎹6⟩ -⎹7⟩)⎹-⟩"}
+									</MathJax.Node>
+									{"Changing sign with period 1 = a"}
+								</p>
+								<p>
+									{"Now for "}
+									<MathJax.Node inline>
+										{"a = 010"}
+									</MathJax.Node>
+									<MathJax.Node>
+										{"(+⎹0⟩ +⎹1⟩ -⎹2⟩ -⎹3⟩ +⎹4⟩ +⎹5⟩ -⎹6⟩ -⎹7⟩)⎹-⟩"}
+									</MathJax.Node>
+									{"Changing sign with period 2 = a"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 0,
+					type: "",
+					step: "\\frac{1}{\\sqrt{2^n}} \\sum_x (-1)^{x·a}⎹x⟩ ⎹-⟩",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									<MathJax.Node inline>
+										{"(-1)^{f(x)} = (-1)^{a·x}"}
+									</MathJax.Node>
+									{"Do you know a formula that looks like that? You should, just change u -> a:"}
+									<MathJax.Node>
+										{"H^{\\otimes n}⎹u_n⟩ = \\frac{1}{\\sqrt{2^{n}}}\\sum_{x} (-1)^{x·u}⎹x⟩"}
+									</MathJax.Node>
+								</p>
+								<p>
+									{"Since Hadamard gate is its own inverse, we apply it here only on the first qubits (⎹x⟩ )"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 0,
+					type: "",
+					step: "H^{\\otimes n} \\frac{1}{\\sqrt{2^n}} \\sum_x (-1)^{x·a}⎹x⟩ = ⎹a⟩",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"Now if we measure, we have⎹a⟩ with 100% probability"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
 			]
 		},
 		{
@@ -1268,6 +1369,10 @@ const initial_state = {
 								<p>
 									{"In (⎹0⟩ +⎹2⟩ +⎹4⟩ ) we have 3 possible states, which not coincidentally is the period of (⎹0⟩ +⎹3⟩ ), which has 2 possible states, the period of (⎹0⟩ +⎹2⟩ +⎹4⟩ ),  M/r = 2"}
 								</p>
+								<p>
+									{"Period before = r ; Period after = M/r"}
+								</p>
+								<p>{"No. states before = M/r ; No. states after = r"}</p>
 								<p>
 									{"The amplitudes of (⎹0⟩ +⎹2⟩ +⎹4⟩ ) are: "}
 								</p>
