@@ -1525,10 +1525,14 @@ const initial_state = {
 									{"period = k, shift = 1, M=6, possible states M/k"}
 								</p>
 								<p>
-									{"⎹1⟩ +⎹k⟩ +⎹2k+1⟩ ...⎹M - k⟩"}
+									<MathJax.Node>
+										{"\\frac{1}{\\sqrt{M/k}} (⎹1⟩ +⎹k⟩ +⎹2k+1⟩ ...⎹M - k⟩ )"}
+									</MathJax.Node>
 								</p>
 								<p>
-									{"⎹1⟩ +⎹k⟩ +⎹2k+1⟩ ...⎹M - k⟩"}
+									<MathJax.Node>
+										{"\\frac{1}{\\sqrt{k}} (⎹0⟩ +⎹M/k⟩ +⎹M/k⟩ ...⎹(r-1)M/k⟩ )"}
+									</MathJax.Node>
 								</p>
 								<p>
 									{"new period = M/k, shift = 0, M=6, new possible states k, new amplitude = "}
