@@ -1252,7 +1252,125 @@ const initial_state = {
 					</h4>
 				</MathJax.Context>
 			),
-			solution: []
+			solution: [
+				{
+					id: 0,
+					type: "formula",
+					step:
+						"\\textrm{(a)} \\quad F_6 \\  \\frac{1}{\\sqrt{2}} \\left(⎹0⟩ +⎹3⟩ \\right)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<img src={"QFT.png"} alt={"r -> M/r"} />
+								<p>
+									{"So if the period of the input state is 3  -> (⎹0⟩ +⎹3⟩ ) , the resulting state has period M/r = 6/3 = 2  -> (⎹0⟩ +⎹2⟩ +⎹4⟩ )"}			
+								</p>
+								<p>
+									{"In (⎹0⟩ +⎹2⟩ +⎹4⟩ ) we have 3 possible states, which not coincidentally is the period of (⎹0⟩ +⎹3⟩ ), which has 2 possible states, the period of (⎹0⟩ +⎹2⟩ +⎹4⟩ ),  M/r = 2"}
+								</p>
+								<p>
+									{"The amplitudes of (⎹0⟩ +⎹2⟩ +⎹4⟩ ) are: "}
+								</p>
+								<MathJax.Node>
+									{"\\frac{1}{\\sqrt{\\textrm{number of states}}} = \\frac{1}{\\sqrt{r}} = \\frac{1}{\\sqrt{3}}"}
+								</MathJax.Node>
+								<p>
+									{"In "}
+									<MathJax.Node inline>
+										{"⎹0⟩ +⎹3⟩ \\textrm{, } \\  r = 3 = M-r = 6-3"}
+									</MathJax.Node>
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 1,
+					type: "",
+					step:
+						"\\frac{1}{\\sqrt{3}} \\left(⎹0⟩ +⎹2⟩ +⎹4⟩ \\right)",
+					note: null
+				},
+				{
+					id: 2,
+					type: "formula",
+					step:
+						"\\textrm{(b)} \\quad F_6 \\  \\frac{1}{\\sqrt{2}} \\left(⎹1⟩ +⎹4⟩ \\right)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"If ⎹Φ'⟩ is the vector⎹Φ⟩ shifted by j"}
+								</p>
+								<MathJax.Node>
+									{"F_M ⎹Φ⟩ = ⎹\\psi⟩ \\quad \\textrm{, then} \\quad F_M ⎹Φ'⟩ = \\omega^j⎹\\psi⟩ "}
+								</MathJax.Node>
+								<p>
+									{"In this case ⎹Φ⟩ = ⎹0⟩ +⎹3⟩ , from (a) and j=1"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 3,
+					type: "",
+					step:
+						"\\frac{1}{\\sqrt{3}} \\omega^1 \\left(⎹0⟩ +⎹2⟩ +⎹4⟩ \\right)",
+					note: null
+				},
+				{
+					id: 4,
+					type: "formula",
+					step:
+						"\\textrm{(c)} \\quad F_6 \\  \\frac{1}{\\sqrt{3}} \\left(⎹0⟩ +⎹2⟩ +⎹4⟩ \\right)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"Period r = 2, size M = 6, new period = M/r = 2, new amplitude "}
+									<MathJax.Node inline>
+										{"1/\\sqrt{r} = 1/\\sqrt{2}"}
+									</MathJax.Node>
+									{" since there is no shift"}
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 5,
+					type: "",
+					step:
+						"\\frac{1}{\\sqrt{2}} \\left(⎹0⟩ +⎹3⟩ \\right)",
+					note: null
+				},
+				{
+					id: 4,
+					type: "formula",
+					step:
+						"\\textrm{(d)} \\quad F_6 \\  \\frac{1}{\\sqrt{3}} \\left(⎹1⟩ +⎹3⟩ +⎹5⟩ \\right)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"Period r = 3-1 = 2, size M = 6, new period = M/r = 2, shift j = 1, new amplitude "}
+									<MathJax.Node inline>
+										{"\\omega^j \\left( 1/\\sqrt{r} \\right) = \\omega^1 \\left( 1/\\sqrt{2} \\right)"}
+									</MathJax.Node>
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				},
+				{
+					id: 5,
+					type: "",
+					step:
+						"\\frac{1}{\\sqrt{2}} \\omega^1 \\left(⎹0⟩ +⎹3⟩ \\right)",
+					note: null
+				},
+			]
 		},
 		{
 			id: 14,
@@ -1269,13 +1387,39 @@ const initial_state = {
 						<br />
 						<MathJax.Node inline>
 							{
-								"⎹\\alpha⟩ = \\sqrt{\\frac{k}{M}} \\sum _{j=0}^{M/k-1} ⎹ jk +1⟩"
+								"⎹\\alpha⟩ = \\sqrt{\\frac{k}{M}} \\sum _{j=0}^{M/k-1} ⎹\\ jk +1⟩"
 							}
 						</MathJax.Node>
 					</h4>
 				</MathJax.Context>
 			),
-			solution: []
+			solution: [
+				{
+					id: 0,
+					type: "formula",
+					step:
+						"F_6 ⎹\\alpha⟩ = \\frac{1}{\\sqrt{k}} \\omega^1 \\sum_{j=0}^{k-1} \\left(⎹\\ j M/k⟩ \\right)",
+					note: (
+						<MathJax.Context input="tex">
+							<div>
+								<p>
+									{"period = k, shift = 1, M=6, possible states M/k"}
+								</p>
+								<p>
+									{"⎹1⟩ +⎹k⟩ +⎹2k+1⟩ ...⎹M - k⟩"}
+								</p>
+								<p>
+									{"⎹1⟩ +⎹k⟩ +⎹2k+1⟩ ...⎹M - k⟩"}
+								</p>
+								<p>
+									{"new period = M/k, shift = 0, M=6, new possible states k, new amplitude = "}
+									<MathJax.Node inline>{"\\omega^j \\ 1/\\sqrt{k}"}</MathJax.Node>
+								</p>
+							</div>
+						</MathJax.Context>
+					)
+				}
+			]
 		}
 	]
 };
